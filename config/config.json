@@ -1,0 +1,14 @@
+{
+    "graphql": {
+        "default": "graphql",
+        "classname": "Rad\\GraphQL\\GraphQLInterface",
+        "handlers": {
+            "graphql": {
+                "classname": "Rad\\GraphQL\\GraphQLHandler",
+                "config": {
+
+                }
+            }
+        }
+    }
+}
