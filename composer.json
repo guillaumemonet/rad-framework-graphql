@@ -1,0 +1,39 @@
+{
+    "name": "rad/rad-framework-graphql",
+    "description": "RAD Framework GraphQL simple support",
+    "authors": [
+        {
+            "name": "Guillaume Monet",
+            "email": "guillaume.monet@free.fr"
+        }
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Rad\\": "src/Rad/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "rad/rad-framework-graphql",
+                "version": "dev-master",
+                "source": {
+                    "url": "git://github.com/guillaumemonet/rad-framework-graphql.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "autoload": {
+                    "psr-4": {
+                        "Rad\\": "src/Rad/"
+                    }
+                }
+            }
+        }
+    ],
+    "require": {
+        "youshido/graphql": "^1.5",
+        "rad/rad-framework": "dev-master"
+    }
+}
