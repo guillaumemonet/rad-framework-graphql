@@ -5,14 +5,14 @@ namespace Rad\GraphQL;
 use ErrorException;
 use Psr\Http\Message\RequestInterface;
 use Youshido\GraphQL\Execution\Processor;
-use Youshido\GraphQL\Schema\Schema;
+use Youshido\GraphQL\Schema\AbstractSchema;
 
 class GraphQLHandler implements GraphQLInterface {
 
     private $processor;
     private $schema;
 
-    public function processPayload(RequestInterface $request): string {
+    public function processPayload(RequestInterface $request) {
         if ($this->processor === null || $this->schema === null) {
             throw new ErrorException('GraphQL Processor or Schema not defined');
         }
@@ -22,12 +22,13 @@ class GraphQLHandler implements GraphQLInterface {
         } else {
             $requestData = $_POST;
         }
+        
         $payload = isset($requestData['query']) ? $requestData['query'] : null;
         $variables = isset($requestData['variables']) ? $requestData['variables'] : null;
-        return $processor->processPayload($payload, $variables)->getResponseData();
+        return $this->processor->processPayload($payload, $variables)->getResponseData();
     }
 
-    public function setSchema(Schema $schema) {
+    public function setSchema(AbstractSchema $schema) {
         $this->schema = $schema;
         $this->processor = new Processor($schema);
     }
