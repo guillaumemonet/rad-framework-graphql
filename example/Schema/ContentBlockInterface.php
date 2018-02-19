@@ -4,7 +4,7 @@
  * ContentBlockInterface.php
  */
 
-namespace example\Schema;
+namespace Schema;
 
 use Youshido\GraphQL\Type\InterfaceType\AbstractInterfaceType;
 use Youshido\GraphQL\Type\NonNullType;

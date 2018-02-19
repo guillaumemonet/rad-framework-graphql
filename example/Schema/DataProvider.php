@@ -4,7 +4,7 @@
  * DataProvider.php
  */
 
-namespace example\Schema;
+namespace Schema;
 
 class DataProvider {
 

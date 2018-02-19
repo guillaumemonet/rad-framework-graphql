@@ -4,7 +4,7 @@
  * PostStatus.php
  */
 
-namespace example\Schema;
+namespace Schema;
 
 use Youshido\GraphQL\Type\Enum\AbstractEnumType;
 

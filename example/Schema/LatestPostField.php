@@ -7,7 +7,7 @@
  * created: 5/20/16 12:07 AM
  */
 
-namespace example\Schema;
+namespace Schema;
 
 use BlogTest\PostType;
 use Youshido\GraphQL\Execution\ResolveInfo;

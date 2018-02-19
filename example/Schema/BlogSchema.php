@@ -4,7 +4,7 @@
  * BlogSchema.php
  */
 
-namespace example\Schema;
+namespace Schema;
 
 use Youshido\GraphQL\Config\Schema\SchemaConfig;
 use Youshido\GraphQL\Execution\ResolveInfo;

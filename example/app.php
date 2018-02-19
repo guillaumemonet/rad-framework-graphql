@@ -1,13 +1,13 @@
 <?php
 
-namespace example;
-
 require(__DIR__ . "/../vendor/autoload.php");
 
-use example\GraphQLController;
 use Rad\Api;
+use Rad\Controller\Controller;
+use Rad\GraphQL\GraphQL;
 use Rad\Log\Log;
 use Rad\Utils\Time;
+use Schema\BlogSchema;
 
 /*
  * The MIT License
@@ -32,6 +32,21 @@ use Rad\Utils\Time;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
+class GraphQLController extends Controller {
+
+    /**
+     * @get /graphql/
+     * @post /graphql/
+     * @produce json
+     */
+    public function graphQL() {
+        $blogSchema = new BlogSchema();
+        GraphQL::getHandler()->setSchema($blogSchema);
+        return GraphQL::getHandler()->processPayload($this->request);
+    }
+
+}
 
 $time = Time::startCounter();
 $app = new Api(__DIR__ . '/config.json');

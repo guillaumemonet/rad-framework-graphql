@@ -4,7 +4,7 @@
  * PostInputType.php
  */
 
-namespace example\Schema;
+namespace Schema;
 
 use Youshido\GraphQL\Type\InputObject\AbstractInputObjectType;
 use Youshido\GraphQL\Type\NonNullType;

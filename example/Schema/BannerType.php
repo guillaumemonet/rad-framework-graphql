@@ -4,7 +4,7 @@
  * BannerType.php
  */
 
-namespace example\Schema;
+namespace Schema;
 
 use Youshido\GraphQL\Type\NonNullType;
 use Youshido\GraphQL\Type\Object\AbstractObjectType;

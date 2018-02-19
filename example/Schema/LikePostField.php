@@ -4,7 +4,7 @@
  * LikePost.php
  */
 
-namespace example\Schema;
+namespace Schema;
 
 use Youshido\GraphQL\Config\Field\FieldConfig;
 use Youshido\GraphQL\Execution\ResolveInfo;
