@@ -1,0 +1,11 @@
+languages:
+  PHP: true
+exclude_paths:
+  - "tests/*"
+  - "example/*"
+  - "bin/*"
+  - "doc/*"
+  - "config/*"
+engines:
+  sonar-php:
+    enabled: true
