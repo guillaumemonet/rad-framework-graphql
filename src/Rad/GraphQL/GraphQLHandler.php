@@ -3,7 +3,8 @@
 namespace Rad\GraphQL;
 
 use ErrorException;
-use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Rad\Log\Log;
 use Youshido\GraphQL\Execution\Processor;
 use Youshido\GraphQL\Schema\AbstractSchema;
 
@@ -12,17 +13,16 @@ class GraphQLHandler implements GraphQLInterface {
     private $processor;
     private $schema;
 
-    public function processPayload(RequestInterface $request) {
+    public function processPayload(ServerRequestInterface $request) {
         if ($this->processor === null || $this->schema === null) {
             throw new ErrorException('GraphQL Processor or Schema not defined');
         }
-        if (isset($_SERVER['CONTENT_TYPE']) && $_SERVER['CONTENT_TYPE'] === 'application/json') {
-            $rawBody = file_get_contents('php://input');
-            $requestData = json_decode($rawBody ?: '', true);
+        if (in_array('application/json', $request->getHeader('Content-Type'))) {
+            $requestData = (array) json_decode($request->getBody()->getContents());
+            Log::getHandler()->debug(json_last_error_msg());
         } else {
-            $requestData = $_POST;
+            $requestData = $request->getBody()->getContents();
         }
-        
         $payload = isset($requestData['query']) ? $requestData['query'] : null;
         $variables = isset($requestData['variables']) ? $requestData['variables'] : null;
         return $this->processor->processPayload($payload, $variables)->getResponseData();

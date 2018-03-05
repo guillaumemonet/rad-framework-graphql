@@ -2,12 +2,12 @@
 
 namespace Rad\GraphQL;
 
-use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Youshido\GraphQL\Schema\AbstractSchema;
 
 interface GraphQLInterface {
 
     public function setSchema(AbstractSchema $schema);
 
-    public function processPayload(RequestInterface $request);
+    public function processPayload(ServerRequestInterface $request);
 }
